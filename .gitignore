@@ -32,3 +32,6 @@
 
 # ignore database fike
 /config/database.yml
+
+# Ignore application configuration
+/config/application.yml
