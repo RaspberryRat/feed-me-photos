@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
   def index
-    @photographer_id = params[:photographer_id]
-    @owner_id = StaticPage.find_owner(@photographer_id)
-    @url = StaticPage.find_user_photos(@owner_id)
+    @photographer = StaticPage.new(params[:photographer_id])
+    @photo_list = @photographer.return_list
 
     respond_to do |format|
       format.html
