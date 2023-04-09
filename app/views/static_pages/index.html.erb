@@ -7,11 +7,13 @@
 <% end %>
 
 
-<% if @photo_list.present? %>
-  <% @photo_list.each do |photo| %>
-    <%= image_tag "https://live.staticflickr.com/#{photo["server"]}/#{photo["id"]}_#{photo["secret"]}.jpg" %>
+<div class="photo-container">
+  <% if @photo_list.present? %>
+    <% @photo_list.each do |photo| %>
+      <div class="photo-frame"><%= image_tag "https://live.staticflickr.com/#{photo["server"]}/#{photo["id"]}_#{photo["secret"]}_n.jpg" %></div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 
 
