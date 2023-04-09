@@ -9,7 +9,11 @@ class StaticPage < ApplicationRecord
   end
 
   def return_list
+    return nil if user_id.nil?
+
     owner = find_owner(user_id)
+    return false unless owner
+
     convert_to_json(find_user_photos(owner).to_s)
   end
 
@@ -35,11 +39,19 @@ class StaticPage < ApplicationRecord
   def find_owner(user_id)
     api_response = self.search_request(user_id)
 
+    return false unless valid_owner?(api_response)
+
     str_start = "owner=\""
     str_end = "\""
 
     # gets the owner id from response
     api_response.split(str_start).last.split(str_end).first
+  end
+
+  def valid_owner?(response)
+    return false unless response.include?("owner")
+
+    true
   end
 
   def as_json(options = {})

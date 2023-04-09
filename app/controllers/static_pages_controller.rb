@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
     @photographer = StaticPage.new(params[:photographer_id])
     @photo_list = @photographer.return_list
 
+    flash.now[:error] = "User doesn't exist" if @photo_list == false
+
     respond_to do |format|
       format.html
       format.json { render json: @url }
