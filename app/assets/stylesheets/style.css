@@ -138,3 +138,15 @@ label {
 	text-decoration: underline;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: rgb(69, 163, 194);
+}
+
+a:active {
+	color: rgb(39, 88, 103);
+}

@@ -1,20 +1,19 @@
+require "flickr"
+require "figaro"
 class StaticPagesController < ApplicationController
   def index
-    @photographer = StaticPage.new(params[:photographer_id])
-    @photo_list = @photographer.return_list
+    flickr = Flickr.new Figaro.env.flickr_key, Figaro.env.flickr_secret
+    debugger
 
-    flash.now[:error] = "User doesn't exist" if @photo_list == false
+    @photographer = params[:photographer_id]
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @url }
-      format.xml { render xml: @url }
+    begin
+      unless @photographer.blank?
+        @photo_list = flickr.photos.search(user_id: @photographer)
+      end
+    rescue StandardError
+      flash.now[:error] = "User doesn't exist"
+      @photo_list = nil
     end
-  end
-
-  private
-
-  def photo_params
-    params.permit(:photographer_id)
   end
 end

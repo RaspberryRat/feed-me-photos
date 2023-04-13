@@ -31,9 +31,12 @@ class StaticPage < ApplicationRecord
       "https://www.flickr.com/services/rest/?method=flickr.people.getPublicPhotos&"
     api_key = ENV["flickr_key"]
 
-    self.make_api_request(
-      "#{api_url}api_key=#{api_key}&user_id=#{user_id}&format=json"
-    )
+    x =
+      make_api_request(
+        "#{api_url}api_key=#{api_key}&user_id=#{user_id}&format=json"
+      )
+    debugger
+    return
   end
 
   def find_owner(user_id)

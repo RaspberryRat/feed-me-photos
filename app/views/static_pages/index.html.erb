@@ -1,14 +1,12 @@
-<h2>Feed Me Photos</h2>
+<h2><%= link_to "Feed Me Photos", root_path %></h2>
 
 
-<%= form_with(model: @static_page, url: static_pages_path, method: :get) do |form| %>
-  <%= form.label :photographer_id, "Flickr User Id:" %>
-  <%= form.text_field :photographer_id %>
-  <%= form.submit 'Submit', class: 'btn' %>
-<% end %>
+ <%= render "form" %>
 
 <% unless flash.present? %>
-  <div class='user-name'><%= params[:photographer_id] %><span>'s Photostream</span></div>
+  <% unless params[:photographer_id].blank? %>
+    <div class='user-name'><%= params[:photographer_id] %><span>'s Photostream</span></div>
+  <% end %>
 <% end %>
 
 <div class="photo-container">
