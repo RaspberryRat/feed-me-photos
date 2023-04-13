@@ -131,3 +131,10 @@ label {
 	font-size: 2rem;
 	color: rgb(71, 71, 71);
 }
+
+.user-name {
+	font-size: 2rem;
+	padding: 20px;
+	text-decoration: underline;
+}
+
