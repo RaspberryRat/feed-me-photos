@@ -43,7 +43,7 @@ table {
 }
 
 /* removes button stlying */
-button, input[type="submit"], input[type="reset"] {
+/* button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
 	border: none;
@@ -51,7 +51,7 @@ button, input[type="submit"], input[type="reset"] {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
-}
+} */
 
 /* Above this is just myers reset */
 
@@ -59,12 +59,18 @@ body {
   background-color: beige;
 }
 
+h2 {
+	font-weight: bold;
+	font-size: 2rem;
+	padding: 30px;
+}
 .photo-container {
   display: grid;
   width: 100vw;
   grid-template-columns: repeat(auto-fit, 400px);
   gap: 25px;
   align-items: center;
+	padding: 20px;
 }
 
 .photo-frame {
@@ -75,5 +81,53 @@ body {
   height: fit-content;
   background-color: black;
   padding: 20px 5px;
+	border-radius: 30px;
+}
 
+
+form {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	gap: 20px;
+	justify-content: start;
+	padding-left: 30px;
+}
+
+input,
+label {
+	grid-row: 1;
+	height: 20px;
+	font-size: 1.2rem;
+	padding-top: 4px;
+}
+
+.btn {
+	grid-row: 2;
+	background-color: rgb(69, 163, 194);
+	padding: 10px;
+	text-align: center;
+	height: auto;
+	border: 1px solid white;
+	border-radius: 10px;
+	color: bisque;
+}
+
+.btn:hover {
+	color: black;
+	background-color: rgb(180, 210, 220);
+}
+
+.btn:active {
+	color: white;
+	background-color: rgb(39, 88, 103);
+}
+
+.flash-message {
+	background-color: rgb(49, 169, 209);
+	width: fit-content;
+	padding: 20px;
+	margin: 10px;
+	border-radius: 5px;
+	font-size: 2rem;
+	color: rgb(71, 71, 71);
 }
